@@ -1,0 +1,13 @@
+[app_settings]
+app_name='play_service'
+app_host='localhost'
+app_port=8080
+app_key='my_key'
+app_mount='/api/v1'
+
+[db_settings]
+db_name='play_service_db'
+db_user='postgres'
+db_password='boss'
+db_host='localhost'
+db_port=5432
