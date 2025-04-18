@@ -6,10 +6,10 @@ from app.services.user_service import user_service
 from app.schemas.user_schema import UserRequestSchema, UserSchema
 
 
-user_roter = APIRouter(prefix='/users')
+user_router = APIRouter(prefix='/users')
 
 
-@user_roter.get('/', response_model=list[UserSchema])
+@user_router.get('/', response_model=list[UserSchema])
 async def all_users(
         session: AsyncSession = Depends(get_session)
 ) -> list[UserSchema]:
@@ -17,7 +17,7 @@ async def all_users(
     return users
 
 
-@user_roter.post('/', response_model=None)
+@user_router.post('/', response_model=None)
 async def create_user(
         request: UserRequestSchema,
         session: AsyncSession = Depends(get_session)
@@ -25,7 +25,7 @@ async def create_user(
     await user_service.add_user(session=session, request=request)
 
 
-@user_roter.get('/{user_id}', response_model=str)
+@user_router.get('/{user_id}', response_model=str)
 async def get_message(
         user_id: int,
         session: AsyncSession = Depends(get_session)

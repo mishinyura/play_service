@@ -1,8 +1,8 @@
 from fastapi import FastAPI
-from app.api.user import user_roter
+from app.api.user import user_router
 
 ROUTES = {
-    '': user_roter
+    '': user_router
 }
 
 app = FastAPI()
